@@ -4,6 +4,7 @@ const socketIo = require('socket.io');
 // servidor de sockets
 const http = require('http');
 const Sockets = require('./socket');
+const cors = require('cors');
 
 class Server {
   constructor() {
@@ -21,6 +22,9 @@ class Server {
 
   middlewares() {
     this.app.use(express.static(path.resolve(__dirname, '../public')));
+
+    // cors
+    this.app.use(cors());
   }
 
   socketsConfig() {
