@@ -10,64 +10,22 @@
 </head>
 
 <body class="container">
-  <h1 class="mt-5">Mini Chat</h1>
+  <h1 class="mt-5">Access denied</h1>
   <hr>
-
-  <form action="" id="myForm">
-    <div class="row">
-      <div class="col-8">
-        <input type="text" id="txtMessage" placeholder="Message" class="form-control">
-      </div>
-      <div class="col-4">
-        <button class="btn btn-primary" type="submit">
-          Submit
-        </button>
-      </div>
-    </div>
-  </form>
-
-  <div class="row">
-    <div class="col">
-      <ul id="myMessages" class="mt-2">
-      </ul>
-    </div>
-  </div>
-
-
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
 
   <script>
-    const socket = io('https://react-socket-server86.herokuapp.com/');
-    // referencias elementos del DOM
-    const form = document.getElementById('myForm');
-    const myMessages = document.getElementById('myMessages');
-    const texMessages = document.getElementById('txtMessage');
+    // conexión con el socket server
+    const socket = io('http://localhost:8080');
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
+    // para emitir
+    // socket.emit('message-to-server', {data});
 
-      const newMessage = texMessages.value;
-
-      socket.emit('message-to-server', {
-        text: newMessage,
-      })
-    });
-
+    // para escuchar
     socket.on('message-from-server', (data) => {
-      myMessages.innerHTML += `<li>${data.text}</li>`
+      // callback a ejecutar
     });
-
-    // socket.on('mensaje-bienvenida', (data) => {
-    //   console.log(data)
-    // });
-
-    // setTimeout(() => {
-    //   socket.emit('mensaje-cliente', {
-    //     msg: 'cliente',
-    //     nombre: 'Jorge'
-    //   })
-    // }, 2000);
   </script>
 </body>
 
