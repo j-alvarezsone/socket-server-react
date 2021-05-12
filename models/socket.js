@@ -10,6 +10,7 @@ class Sockets {
     this.io.on('connection', (socket) => {
       // escuchar evento: message-to-server
       socket.on('message-to-server', (data) => {
+        console.log(data);
         this.io.emit('message-from-server', data);
       });
     });
