@@ -5,8 +5,6 @@ const socketIo = require('socket.io');
 const http = require('http');
 const Sockets = require('./socket');
 
-require('dotenv').config();
-
 class Server {
   constructor() {
     this.app = express();
