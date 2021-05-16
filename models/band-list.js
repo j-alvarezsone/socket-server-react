@@ -21,7 +21,7 @@ class BandList {
   }
 
   increaseVotes(id) {
-    this.bands = this.bands.mao((band) => {
+    this.bands = this.bands.map((band) => {
       if (band.id === id) {
         band.votes += 1;
       }
@@ -30,7 +30,7 @@ class BandList {
   }
 
   changeName(id, newName) {
-    this.bands = this.bands.mao((band) => {
+    this.bands = this.bands.map((band) => {
       if (band.id === id) {
         band.name = newName;
       }
