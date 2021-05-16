@@ -12,7 +12,7 @@ class BandList {
     return this.bands;
   }
 
-  removeBand(id) {
+  deleteBand(id) {
     this.bands = this.bands.filter((band) => band.id !== id);
   }
 
