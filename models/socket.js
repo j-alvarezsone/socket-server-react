@@ -23,6 +23,13 @@ class Sockets {
         // esto cambio entonces hay que refrescarlo
         this.io.emit('current-bands', this.bandList.getBands());
       });
+
+      // borrar banda
+      socket.on('delete-band', (id) => {
+        this.bandList.deleteBand(id);
+
+        this.io.emit('current-bands', this.bandList.getBands());
+      });
     });
   }
 }
